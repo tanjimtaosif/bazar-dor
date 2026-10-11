@@ -37,6 +37,7 @@ export default function UserMenu({ user }: UserMenuProps) {
         </div>
         <Link
           href="/profile"
+          onClick={(event) => event.currentTarget.blur()}
           className="py-1 text-sm font-medium hover:text-primary"
         >
           👤 আমার প্রোফাইল
