@@ -41,8 +41,10 @@
 @utility ticker-track {
   animation: ticker 60s linear infinite;
 
-  &:hover {
-    animation-play-state: paused;
+  @media (hover: hover) {
+    &:hover {
+      animation-play-state: paused;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
