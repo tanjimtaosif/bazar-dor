@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 বাজার দর (BazarDor)
+
+বাজার দর is a daily market price tracker for Bangladesh. It shows today's prices of essential goods — rice, lentils, oil, vegetables, fish, meat, eggs, dairy and spices — along with price changes and a market-by-market breakdown.
+
+- Live Link:
+- GitHub Repository Link:
+
+## Features
+
+1. **Daily price overview** — top price risers, top fallers and the full product list on the home page, with Bengali numerals and change badges.
+2. **Live price ticker** — an infinite scrolling strip below the navbar showing every product's price and change.
+3. **Category pages with sorting** — browse products by category and sort by price (low to high / high to low).
+4. **Protected product details** — minimum, maximum and average price plus a market-wise price table, available after sign in.
+5. **Authentication with Better Auth** — email/password, Google and GitHub sign in, with toast notifications.
+6. **Profile management** — view account information and update your name.
+7. **Responsive UI** — skeleton loaders, a friendly 404 page, and layouts for mobile, tablet and desktop.
+
+## Technologies
+
+- Next.js 16 (App Router) + React 19
+- TypeScript
+- Tailwind CSS 4 + DaisyUI 5
+- Better Auth + MongoDB
+- React Hot Toast
 
 ## Getting Started
 
-First, run the development server:
+Install the dependencies:
+
+```bash
+npm install
+```
+
+Create a `.env` file in the project root:
+
+```env
+BETTER_AUTH_SECRET=
+BETTER_AUTH_URL=http://localhost:3000
+
+MONGODB_URI=
+MONGODB_DB=bazar-dor
+
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+```
+
+OAuth redirect URLs:
+
+- Google: `http://localhost:3000/api/auth/callback/google`
+- GitHub: `http://localhost:3000/api/auth/callback/github`
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+├── app/            Routes, layouts, loading and not-found pages
+├── components/     Reusable UI grouped by feature (layout, home, product, auth, profile, ui)
+├── hooks/          Client hooks
+├── lib/            API layer, auth setup, formatters and constants
+├── types/          Shared TypeScript types
+└── proxy.ts        Route protection for /product and /profile
+```
