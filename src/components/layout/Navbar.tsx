@@ -1,13 +1,36 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
-import logoIcon from "@/app/assets/logo-icon.png";
 import AuthActions from "@/components/layout/AuthActions";
 import CategoryNav from "@/components/layout/CategoryNav";
 import PriceTicker from "@/components/layout/PriceTicker";
 import Container from "@/components/ui/Container";
 import { getCategories } from "@/lib/api";
 import { formatBanglaDate } from "@/lib/format";
+
+// CartIcon
+function CartIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="size-6" aria-hidden="true">
+      <path d="M2 7h16.800l-1.300 7.500H4.200z" fill="currentColor" />
+      <path
+        d="M7.200 7.600l.500 6.300M11 7.600v6.300M14.800 7.600l-.500 6.300M3.200 10.750h14.800"
+        className="stroke-primary"
+        strokeWidth={0.9}
+        fill="none"
+      />
+      <path
+        d="M22 3.500h-2.200L17.600 17.200H5.500"
+        stroke="currentColor"
+        strokeWidth={1.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+      <circle cx="6.800" cy="20.300" r="1.700" fill="currentColor" />
+      <circle cx="16.800" cy="20.300" r="1.700" fill="currentColor" />
+    </svg>
+  );
+}
 
 // CategoryLinks
 async function CategoryLinks() {
@@ -24,8 +47,8 @@ export default function Navbar() {
       <div className="border-b border-base-300">
         <Container className="flex items-center justify-between gap-3 py-3">
           <Link href="/" className="flex min-w-0 items-center gap-2">
-            <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary">
-              <Image src={logoIcon} alt="বাজার দর" width={22} height={22} />
+            <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-content">
+              <CartIcon />
             </span>
             <span className="flex min-w-0 flex-col leading-tight">
               <span className="text-xl font-bold">বাজার দর</span>
