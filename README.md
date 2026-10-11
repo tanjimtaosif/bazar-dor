@@ -2,8 +2,8 @@
 
 বাজার দর is a daily market price tracker for Bangladesh. It shows today's prices of essential goods — rice, lentils, oil, vegetables, fish, meat, eggs, dairy and spices — along with price changes and a market-by-market breakdown.
 
-- Live Link:
-- GitHub Repository Link:
+- Live Link: https://bazar-dor-amber.vercel.app/
+- GitHub Repository Link: https://github.com/tanjimtaosif/bazar-dor
 
 ## Features
 
